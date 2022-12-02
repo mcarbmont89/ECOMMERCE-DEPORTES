@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import login, logout, authenticate #funcines necesarias
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
 from usuarios.forms import UserRegisterForm, UserEditForm
+from usuarios.models import *
 from django.contrib.auth.decorators import login_required
 
 #importo el BASE_DIR del proyecto para manejar archivos
@@ -76,3 +77,14 @@ def editar_usuario(request):
 
     return render(request,"usuarios/editar_usuario.html", {"form":formulario,"usuario":usuario})
     
+def avatar_usuario(usuario_activo):
+
+    if usuario_activo.is_authenticated:
+        if len(Avatar.objects.filter(user= usuario_activo.id))==1:
+            imagen_model = Avatar.objects.filter(user= usuario_activo.id)[0]
+            imagen_url = imagen_model.imagen.url
+        else:
+            imagen_url=""
+    else:
+        imagen_url = ""
+    return (imagen_url)
