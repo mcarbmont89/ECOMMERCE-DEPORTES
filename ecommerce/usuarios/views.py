@@ -5,9 +5,7 @@ from usuarios.forms import UserRegisterForm, UserEditForm
 from usuarios.models import *
 from django.contrib.auth.decorators import login_required
 
-#importo el BASE_DIR del proyecto para manejar archivos
-from diabetes.settings import BASE_DIR
-#e importo el paquete os para manejar nombres de archivo
+# importo el paquete os para manejar nombres de archivo
 import os
 
 #Defino la función para iniciar sesión
