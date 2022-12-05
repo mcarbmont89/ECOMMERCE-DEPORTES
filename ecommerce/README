@@ -6,3 +6,5 @@ Integrantes:
 
 Superusuario: administrador
 Pass: admin1234
+
+página de inicio http://127.0.0.1:8000/productos/inicio/
