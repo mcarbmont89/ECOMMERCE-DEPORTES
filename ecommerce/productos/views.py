@@ -5,7 +5,9 @@ from usuarios.views import avatar_usuario
 
 
 def inicio(request):
-    return render(request,"productos/inicio.html",{"avatar":avatar_usuario(request.user)})
+    deportes = Deporte.objects.all()
+    contexto = {"avatar":avatar_usuario(request.user),"deporte_lista":deportes}
+    return render(request,"productos/inicio.html",contexto)
 
 # Función para listar todos los artículos
 @login_required
