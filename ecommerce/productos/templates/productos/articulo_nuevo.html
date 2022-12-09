@@ -1,0 +1,21 @@
+{% extends "productos/base.html" %}
+
+{% block contenido %}
+
+<h1 class="mt-4">Artículos</h1>
+<p> Formulario para ingresar un deporte nuevo </p>
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <p> Deporte: <input type="number" name="deporte"> </p>
+    <p> Nombre: <input type="text" name="nombre"> </p>
+    <p> Marca: <input type="number" name="marca"> </p>
+    <p> Descripcion: <input type="text" name="descripcion"> </p>
+    <p> Precio: <input type="number" name="precio"> </p>
+    <p> Publicacion: <input type="date" name="publicacion"> </p>
+    <p> Imagen: <input type="file" name="imagen"> </p>
+
+    <input type="submit" value="Crear articulo">
+
+</form>
+
+{% endblock %}

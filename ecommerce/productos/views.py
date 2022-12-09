@@ -30,3 +30,21 @@ def deportes_nuevo(request):
         return redirect("productos-inicio")
         
     return render(request, "productos/deportes_nuevo.html")
+
+def articulo_nuevo(request):
+    #acá me traigo los datos desde el formulario y los guardo en variables para luego crear la instancia
+    if request.method == "POST":
+        deporte_nuevo = request.POST["deporte"]
+        nombre_nuevo = request.POST["nombre"]
+        marca_nuevo = request.POST["marca"]
+        descripcion_nuevo = request.POST["descripcion"]
+        precio_nuevo = request.POST["precio"]
+        publicacion_nuevo = request.POST["publicacion"]
+        imagen_nuevo = request.FILES["imagen"]
+                
+        #creo una instancia llamada "persona_nueva" de la clase "Persona" con los atributos que traigo desde el formulario
+        articulo_nuevo = Articulo(deporte=deporte_nuevo, nombre=nombre_nuevo,marca=marca_nuevo, descripcion=descripcion_nuevo, precio=precio_nuevo, publicacion=publicacion_nuevo, imagen=imagen_nuevo)
+        articulo_nuevo.save() #con esto lo guardo en la base de datos
+        return redirect("productos-inicio")
+        
+    return render(request, "productos/articulo_nuevo.html")

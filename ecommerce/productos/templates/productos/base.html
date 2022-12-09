@@ -48,6 +48,18 @@
                                 <li><a class="dropdown-item" href="#!">Voley</a></li>
                             </ul>
                         </li>
+                        {% if request.user.is_superuser %}
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Administrar</a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="{% url 'deportes-nuevo' %}">Nuevo Deporte</a></li>
+                                <li><a class="dropdown-item" href="#!">Editar Deporte</a></li>
+                                <li><a class="dropdown-item" href="{% url 'articulo-nuevo' %}">Nuevo Articulo</a></li>
+                                <li><a class="dropdown-item" href="#!">Editar Articulo</a></li>
+                            </ul>
+                        </li>
+                        {% endif %}
+
                     </ul>
                     <form class="d-flex">
                         <button class="btn btn-outline-dark" type="submit">
