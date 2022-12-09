@@ -1,0 +1,17 @@
+{% extends "productos/base.html" %}
+
+{% block contenido %}
+
+<h1 class="mt-4">Deportes</h1>
+<p> Formulario para ingresar un deporte nuevo </p>
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <p> Nombre: <input type="text" name="nombre"> </p>
+    <p> Imagen: <input type="file" name="imagen"> </p>
+
+    <input type="submit" value="Crear deporte">
+
+</form>
+<a href="{% url 'productos-inicio' %}"> Ir a inicio </a>
+
+{% endblock %}

@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth import login, logout, authenticate #funcines necesarias
-from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
+from django.contrib.auth import login, authenticate #funcines necesarias
+from django.contrib.auth.forms import AuthenticationForm
 from usuarios.forms import UserRegisterForm, UserEditForm
 from usuarios.models import *
 from django.contrib.auth.decorators import login_required
@@ -25,7 +25,7 @@ def iniciar_sesion(request):
             if user is not None: 
                 #vamos a hacer el login
                 login(request, user) 
-                return redirect("carbohidratos-inicio")
+                return redirect("productos-inicio")
             
             #si el usuario NO existe
             else:
@@ -46,7 +46,7 @@ def registrar_usuario(request):
             formulario.save()
             user = authenticate(username=data["username"], password=data["password1"])
             login(request,user)
-            return redirect("carbohidratos-inicio")
+            return redirect("productos-inicio")
         else:
             return render(request,"usuarios/registrar_usuario.html", {"form":formulario, "errors": errors})
             
@@ -69,7 +69,7 @@ def editar_usuario(request):
             #usuario.password2 = data["password2"]
             usuario.save()
 
-            return redirect("carbohidratos-inicio")
+            return redirect("productos-inicio")
     else:
         formulario = UserEditForm(initial={"first_name":usuario.first_name,"last_name":usuario.last_name,"email":usuario.email})
 
