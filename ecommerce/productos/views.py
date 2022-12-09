@@ -41,10 +41,15 @@ def articulo_nuevo(request):
         precio_nuevo = request.POST["precio"]
         publicacion_nuevo = request.POST["publicacion"]
         imagen_nuevo = request.FILES["imagen"]
-                
+
+        deporte_instancia = Deporte.objects.filter(nombre=deporte_nuevo)[0]
+        marca_instancia = Marca.objects.filter(nombre=marca_nuevo)[0]
+
         #creo una instancia llamada "persona_nueva" de la clase "Persona" con los atributos que traigo desde el formulario
-        articulo_nuevo = Articulo(deporte=deporte_nuevo, nombre=nombre_nuevo,marca=marca_nuevo, descripcion=descripcion_nuevo, precio=precio_nuevo, publicacion=publicacion_nuevo, imagen=imagen_nuevo)
+        articulo_nuevo = Articulo(deporte=deporte_instancia, nombre=nombre_nuevo,marca=marca_instancia, descripcion=descripcion_nuevo, precio=precio_nuevo, publicacion=publicacion_nuevo, imagen=imagen_nuevo)
         articulo_nuevo.save() #con esto lo guardo en la base de datos
         return redirect("productos-inicio")
-        
-    return render(request, "productos/articulo_nuevo.html")
+
+    marcas = Marca.objects.all()
+    deportes = Deporte.objects.all()
+    return render(request, "productos/articulo_nuevo.html",{"marcas":marcas,"deportes":deportes})
