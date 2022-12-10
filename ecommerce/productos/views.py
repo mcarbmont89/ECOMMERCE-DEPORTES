@@ -53,3 +53,4 @@ def articulo_nuevo(request):
     marcas = Marca.objects.all()
     deportes = Deporte.objects.all()
     return render(request, "productos/articulo_nuevo.html",{"marcas":marcas,"deportes":deportes})
+

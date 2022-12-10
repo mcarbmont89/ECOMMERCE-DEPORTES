@@ -39,7 +39,7 @@
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Productos</a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="#!">Todos</a></li>
+                                <li><a class="dropdown-item" href="{% url 'articulos-listar' %}">Todos</a></li>
                                 <li><hr class="dropdown-divider" /></li>
                                 <li><a class="dropdown-item" href="#!">Basquet</a></li>
                                 <li><a class="dropdown-item" href="#!">Fútbol</a></li>
@@ -82,13 +82,11 @@
         </header>
         <!-- Section-->
         <section class="py-5">
-            <div class="container px-4 px-lg-5 mt-5">
-                <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
-                {% block contenido%}
 
-                {% endblock %}
-                </div>
-            </div>
+            {% block contenido%}
+
+            {% endblock %}
+
         </section>
         <!-- Footer-->
         <footer class="py-5 bg-dark">
