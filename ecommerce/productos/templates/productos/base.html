@@ -39,7 +39,7 @@
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Productos</a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="{% url 'articulos-listar' %}">Todos</a></li>
+                                <li><a class="dropdown-item" href="{% url 'articulos-listar' 0 %}">Todos</a></li>
                                 <li><hr class="dropdown-divider" /></li>
                                 <li><a class="dropdown-item" href="#!">Basquet</a></li>
                                 <li><a class="dropdown-item" href="#!">Fútbol</a></li>
@@ -53,9 +53,8 @@
                             <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Administrar</a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <li><a class="dropdown-item" href="{% url 'deportes-nuevo' %}">Nuevo Deporte</a></li>
-                                <li><a class="dropdown-item" href="#!">Editar Deporte</a></li>
                                 <li><a class="dropdown-item" href="{% url 'articulo-nuevo' %}">Nuevo Articulo</a></li>
-                                <li><a class="dropdown-item" href="#!">Editar Articulo</a></li>
+                                
                             </ul>
                         </li>
                         {% endif %}

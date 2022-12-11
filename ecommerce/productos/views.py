@@ -11,11 +11,15 @@ def inicio(request):
 
 # Función para listar todos los artículos
 @login_required
-def articulos_listar(request):
-    #obtengo el listado de articulos de la base de datos
-    lista_articulos = Articulo.objects.all().order_by("nombre")
-    contexto = {"avatar":avatar_usuario(request.user),"articulos_resultado":lista_articulos}
-
+def articulos_listar(request,deporte_id):
+    if deporte_id == "0":
+        #obtengo el listado de articulos de la base de datos
+        lista_articulos = Articulo.objects.all().order_by("nombre")
+        deporte_elegido = "Todos"
+    else:
+        lista_articulos = Articulo.objects.filter(deporte=deporte_id).order_by("nombre")
+        deporte_elegido = Deporte.objects.filter(id=deporte_id)[0].nombre
+    contexto = {"avatar":avatar_usuario(request.user),"articulos_resultado":lista_articulos,"cantidad":len(lista_articulos),"deporte":deporte_elegido}
     return render(request,"productos/articulos_listar.html", contexto)
 
 def deportes_nuevo(request):
