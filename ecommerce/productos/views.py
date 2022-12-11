@@ -79,4 +79,7 @@ def articulos_editar(request, id_a_editar):
         datos_inicio = {"inicial":articulo_editar}
         return render (request,"productos/articulo_editar.html",datos_inicio)
 
+def articulos_detalle(request,id_detalle):
+    articulo_detalle = Articulo.objects.get(id=id_detalle)
+    return render(request, "productos/articulo_detalle.html",{"articulo":articulo_detalle})
     
