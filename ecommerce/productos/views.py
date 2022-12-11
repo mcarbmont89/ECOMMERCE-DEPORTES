@@ -74,7 +74,7 @@ def articulos_editar(request, id_a_editar):
         articulo_editar.publicacion = request.POST["publicacion"]
         
         articulo_editar.save() #con esto guardo los cambios en la base de datos
-        return redirect("articulos-listar")
+        return redirect("productos-inicio")
     else:
         datos_inicio = {"inicial":articulo_editar}
         return render (request,"productos/articulo_editar.html",datos_inicio)
