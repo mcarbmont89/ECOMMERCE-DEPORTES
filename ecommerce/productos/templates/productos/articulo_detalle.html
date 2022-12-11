@@ -22,7 +22,7 @@
                 <div>
                     Mensajes
                     {% for mensaje in mensajes %}
-                    <p class="lead"> De {{mensaje.user.nombre}}: {{mensaje.mensaje}}</p>
+                    <p class="lead"> De {{mensaje.user_id}}: {{mensaje.mensaje}}</p>
                     {% endfor %}
                 </div>
             </div>
