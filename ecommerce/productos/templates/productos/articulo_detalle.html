@@ -16,10 +16,14 @@
                     </div>
                     <p class="lead">{{articulo.descripcion}}</p>
                     <p class="lead">Fecha de publicación: {{articulo.publicacion}}</p>
-                    {% for mensaje in mensasjes %}
-                    <p class="lead">De {{mensaje.id_usuario}}: {{mensaje.mensaje}}</p>
-                    {% endfor %}
                     <a class="btn btn-outline-dark mt-auto" href="{% url 'articulos-listar' 0 %}">Volver</a>
+
+                </div>
+                <div>
+                    Mensajes
+                    {% for mensaje in mensajes %}
+                    <p class="lead"> De {{mensaje.user.nombre}}: {{mensaje.mensaje}}</p>
+                    {% endfor %}
                 </div>
             </div>
         </div>
