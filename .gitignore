@@ -6,6 +6,9 @@
 *.pot
 *.pyc
 __pycache__/
+productos\__pycache__/
+usuarios\__pycache__/
+tienda\__pycache__/
 local_settings.py
 db.sqlite3
 db.sqlite3-journal
