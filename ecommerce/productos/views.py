@@ -1,5 +1,6 @@
 from django.shortcuts import render,redirect
 from productos.models import *
+from usuarios.models import *
 from django.contrib.auth.decorators import login_required
 from usuarios.views import avatar_usuario
 
@@ -62,7 +63,7 @@ def articulos_eliminar(request, id_a_eliminar):
     articulo_borrar = Articulo.objects.get(id=id_a_eliminar)
     articulo_borrar.delete()
 
-    return redirect("articulos-listar")
+    return redirect("productos-inicio")
 
 def articulos_editar(request, id_a_editar):
     articulo_editar = Articulo.objects.get(id=id_a_editar)
@@ -81,5 +82,6 @@ def articulos_editar(request, id_a_editar):
 
 def articulos_detalle(request,id_detalle):
     articulo_detalle = Articulo.objects.get(id=id_detalle)
-    return render(request, "productos/articulo_detalle.html",{"articulo":articulo_detalle})
+    mensajes_articulo = Mensajes.objects.filter(articulo_id=id_detalle)
+    return render(request, "productos/articulo_detalle.html",{"articulo":articulo_detalle,"mensajes":mensajes_articulo})
     

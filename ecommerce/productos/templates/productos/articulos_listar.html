@@ -7,6 +7,7 @@
 
                 {% if cantidad == 0 %}
                     <h5 class="fw-bolder">No hay artículos de {{deporte}} para mostrar</h5>
+                    <a class="btn btn-outline-dark mt-auto" href="{% url 'productos-inicio' %}">Volver</a>
                 {% else %}
                 <p></p>
                 <h5 class="fw-bolder">Artículos de {{deporte}}:</h5>
