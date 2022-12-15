@@ -20,9 +20,9 @@
                 </div>
             </div>
             <div class="row gx-4 gx-lg-5 align-items-left">
-                Mensajes
+                <h1>Mensajes</h1>
                 {% for mensaje in mensajes %}
-                <p class="lead"> de {{mensaje.user}}-{{mensaje.fecha}}: {{mensaje.mensaje}}</p>
+                <p class="lead"> <b>Comentario de Usuario:</b> {{mensaje.user}} <br> <b>Fecha:</b> {{mensaje.fecha}}: <br> <b>Mensaje: </b> {{mensaje.mensaje}}</p> 
                 {% endfor %}
 
                 <form method="post">
