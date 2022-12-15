@@ -20,16 +20,18 @@
                 </div>
             </div>
             <div class="row gx-4 gx-lg-5 align-items-left">
-                <h1>Mensajes</h1>
-                {% for mensaje in mensajes %}
-                <p class="lead"> <b>Comentario de Usuario:</b> {{mensaje.user}} <br> <b>Fecha:</b> {{mensaje.fecha}}: <br> <b>Mensaje: </b> {{mensaje.mensaje}}</p> 
-                {% endfor %}
-
                 <form method="post">
                     {% csrf_token %}
                     <p> Mensaje: <input type="text" name="mensaje"></p>
                     <input type="submit" value="Ingresar comentario">
                 </form>
+
+                <h1>Mensajes</h1>
+                {% for mensaje in mensajes %}
+                <p class="lead"> <b>Comentario de Usuario:</b> {{mensaje.user}} <br> <b>Fecha:</b> {{mensaje.fecha}}: <br> <b>Mensaje: </b> {{mensaje.mensaje}}</p> 
+                {% endfor %}
+
+                
             </div>
     
         </div>
