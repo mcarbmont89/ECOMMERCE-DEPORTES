@@ -11,3 +11,4 @@ class Mensajes(models.Model):
     user = models.ForeignKey(User,on_delete=models.CASCADE)
     articulo = models.ForeignKey(Articulo, on_delete=models.CASCADE)
     mensaje = models.CharField(max_length=300)
+    fecha = models.DateTimeField(auto_now=True)

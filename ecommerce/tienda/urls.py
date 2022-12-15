@@ -17,9 +17,11 @@ from django.contrib import admin
 from django.urls import path,include
 import tienda.settings as settings
 from django.conf.urls.static import static
+from productos.views import * #para q levante directo la pagina de inicio
 
 
 urlpatterns = [
+    path("", inicio, name="productos-inicio"), #para q levante directo la pagina de inicio
     path('admin/', admin.site.urls),
     path('productos/',include('productos.urls')),
     path('usuarios/', include('usuarios.urls')),

@@ -82,6 +82,11 @@ def articulos_editar(request, id_a_editar):
 
 def articulos_detalle(request,id_detalle):
     articulo_detalle = Articulo.objects.get(id=id_detalle)
+    
+    if request.method == "POST":
+        mensaje = Mensajes(user_id=request.user.id, articulo_id=id_detalle, mensaje=request.POST["mensaje"])
+        mensaje.save()
+    
     mensajes_articulo = Mensajes.objects.filter(articulo_id=id_detalle)
     return render(request, "productos/articulo_detalle.html",{"articulo":articulo_detalle,"mensajes":mensajes_articulo})
     

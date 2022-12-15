@@ -25,3 +25,4 @@ class UserEditForm(UserChangeForm):
         model = User
         fields = ["first_name","last_name","email"]
         help_texts = { "email": "Indica un correo electronico que uses habitualmente", "first_name": "", "last_name": ""}
+   
