@@ -3,6 +3,7 @@ from productos.views import *
 
 urlpatterns = [
     path("inicio/", inicio, name="productos-inicio"),
+    path("sobre_nosotros/", miembros, name="miembros-inicio"),
     #path("admin/inicio/", admin_inicio, name="admin-inicio"),
     path("nuevo_deporte/",deportes_nuevo,name="deportes-nuevo"),
     path("nuevo_articulo/",articulo_nuevo,name="articulo-nuevo"),

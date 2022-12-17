@@ -24,9 +24,6 @@
                     <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{request.user.first_name}}</a>
                     <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="{% url 'usuarios-editar' %}">Editar datos</a>
-                        <a class="dropdown-item" href="#!">Another action</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#!">Something else here</a>
                     </div>
                 </li>
             {% else %}
@@ -35,17 +32,17 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
                         <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url 'productos-inicio' %}">Inicio</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#!">Sobre Nosotros</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'miembros-inicio' %}">Sobre Nosotros</a></li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Productos</a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <li><a class="dropdown-item" href="{% url 'articulos-listar' 0 %}">Todos</a></li>
                                 <li><hr class="dropdown-divider" /></li>
-                                <li><a class="dropdown-item" href="#!">Basquet</a></li>
-                                <li><a class="dropdown-item" href="#!">Fútbol</a></li>
-                                <li><a class="dropdown-item" href="#!">Natación</a></li>
-                                <li><a class="dropdown-item" href="#!">Tenis</a></li>
-                                <li><a class="dropdown-item" href="#!">Voley</a></li>
+                                <li><a class="dropdown-item" href="{% url 'articulos-listar' 1 %}">Fútbol</a></li>
+                                <li><a class="dropdown-item" href="{% url 'articulos-listar' 2 %}">Basquet</a></li>
+                                <li><a class="dropdown-item" href="{% url 'articulos-listar' 3 %}">Voley</a></li>
+                                <li><a class="dropdown-item" href="{% url 'articulos-listar' 4 %}">Tenis</a></li>
+                                <li><a class="dropdown-item" href="{% url 'articulos-listar' 5 %}">Paddle</a></li>
                             </ul>
                         </li>
                         {% if request.user.is_superuser %}

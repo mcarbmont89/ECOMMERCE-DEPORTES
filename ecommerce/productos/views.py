@@ -91,4 +91,6 @@ def articulos_detalle(request,id_detalle):
     mensajes_articulo = Mensajes.objects.filter(articulo_id=id_detalle)
     
     return render(request, "productos/articulo_detalle.html",{"articulo":articulo_detalle,"mensajes":mensajes_articulo})
-    
+
+def miembros(request):
+    return render(request,"productos/sobre_nosotros.html")
